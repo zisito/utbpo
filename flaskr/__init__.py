@@ -27,8 +27,11 @@ def create_app(test_config=None):
     @app.route('/init')
     def init():
         return 'Flask armed and ready'
-
+    # init db
     from . import db
     db.init_app(app)
+    # endpoint for employee
+    from . import employee
+    app.register_blueprint(employee.bp)
 
     return app

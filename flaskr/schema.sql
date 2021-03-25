@@ -22,7 +22,9 @@ CREATE TABLE subject (
 );
 
 CREATE TABLE employee (
-  id INTEGER PRIMARY KEY AUTOINCREMENT
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(64) NULL,
+  surname varchar(64) NULL
 );
 
 CREATE TABLE field_spec (
