@@ -37,4 +37,10 @@ def create_app(test_config=None):
     from . import fieldSpec
     app.register_blueprint(fieldSpec.bp)
 
+    from . import subject
+    app.register_blueprint(subject.bp)
+
+    from . import contract
+    app.register_blueprint(contract.bp)
+
     return app

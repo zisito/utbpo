@@ -3,33 +3,33 @@ from flask import (
 )
 from flaskr.db import get_db
 
-bp = Blueprint('fieldspec', __name__, url_prefix='/fieldspec')
+bp = Blueprint('contract', __name__, url_prefix='/contract')
 
 
 @bp.route('/add', methods=('GET', 'POST'))
 def add():
     if request.method == 'POST':
-        name = request.form['name']
-        studytype = request.form['studytype']
+        code = request.form['code']
+        subject = request.form['subject']
         db = get_db()
         error = None
 
-        if not name:
+        if not code:
             error = 'Name is required.'
-        elif not studytype:
+        elif not subject:
             error = 'Studytype is required.'
         elif db.execute(
-            'SELECT name FROM field_spec WHERE name = ?', (name, )
+            'SELECT name FROM contract WHERE name = ?', (code, )
         ).fetchone() is not None:
-            error = 'Employee {} is already known.'.format(name)
+            error = 'Employee {} is already known.'.format(code)
 
         if error is None:
             db.execute(
-                'INSERT INTO field_spec (name, surname) VALUES (?, ?)',
-                (name, studytype)
+                'INSERT INTO contract (code, subject) VALUES (?, ?)',
+                (code, subject)
             )
             db.commit()
-            return redirect(url_for('fieldspec.add'))
+            return redirect(url_for('contract.add'))
 
         flash(error)
 
