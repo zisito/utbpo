@@ -28,7 +28,9 @@ CREATE TABLE employee (
 );
 
 CREATE TABLE field_spec (
-  id INTEGER PRIMARY KEY AUTOINCREMENT
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(64) NULL,
+  study_type varchar(10) NOT NULL
 );
 
 CREATE TABLE contract(

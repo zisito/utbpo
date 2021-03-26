@@ -34,4 +34,7 @@ def create_app(test_config=None):
     from . import employee
     app.register_blueprint(employee.bp)
 
+    from . import fieldSpec
+    app.register_blueprint(fieldSpec.bp)
+
     return app
