@@ -7,8 +7,9 @@ from flaskr.db import get_db
 
 bp = Blueprint('employee', __name__, url_prefix='/employee')
 
+
 @bp.route('/fill', methods=('GET', 'POST'))
-def register():
+def fill():
     if request.method == 'POST':
         name = request.form['name']
         surname = request.form['surname']
@@ -16,11 +17,11 @@ def register():
         error = None
 
         if not name:
-            error = 'Username is required.'
+            error = 'Name is required.'
         elif not surname:
-            error = 'Password is required.'
+            error = 'Surname is required.'
         elif db.execute(
-            'SELECT id FROM user WHERE name = ? and surname = ?', (name, surname)
+            'SELECT name FROM employee WHERE name = ?', (name, )
         ).fetchone() is not None:
             error = 'Employee {} is already known.'.format(name)
 
@@ -34,4 +35,5 @@ def register():
 
         flash(error)
 
-    return render_template('employee/fill.html')
+    #return render_template('employee/fill.html')
+    return render_template('employee_fill.html')
