@@ -1,0 +1,23 @@
+{% extends 'basic.html' %}
+{% block header %}
+  <h1>{% block title %}Add{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for row in output_data %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

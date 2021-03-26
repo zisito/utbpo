@@ -37,3 +37,11 @@ def add():
 
     #return render_template('employee/fill.html')
     return render_template('add.html')
+
+
+@bp.route('/view')
+def view():
+    db = get_db()
+    data = db.execute('SELECT name, surname FROM employee').fetchall()
+
+    return render_template('view.html', output_data = data)
