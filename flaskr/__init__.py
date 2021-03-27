@@ -24,9 +24,14 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    @app.route('/')
+    def root():
+        return 'Root file UTB PO project'
+
     @app.route('/init')
     def init():
         return 'Flask armed and ready'
+
     # init db
     from . import db
     db.init_app(app)

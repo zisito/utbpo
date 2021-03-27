@@ -97,6 +97,9 @@ work_points - Double
 
 type - varchar(1) // T - teaching, P - project, E - extra
 
+class_id - varchar
+
+subject_id -varchar
 
 
 
