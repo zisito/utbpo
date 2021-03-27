@@ -16,22 +16,36 @@ seminar_count - Int
 
 practice_count - Int
 
-weekly_count - Int
+weekly_count - Int // weeks of semester?
 
-semester_count - Int
+semester_total - Int //total count of hours
 
-lang - varchar(2)
+lang - varchar(2) // default CS?
 
-study_type - varchar(2)
+study_type - varchar(2) // PS or KS 
 
-study_field_list - varchar
+study_field_list - varchar // FK on field_spec?
 
-year_of_study - Int
+year_of_study - Int // 
 
 semester - Varchar(2)
 
+
+
+### Table name: _subject_class_
+Columns:
+
+class_id - varchar
+
+subject_id - varchar
+
+type - varchar // lecture / seminar/practice/ tests
+
+capacity - Int
+
 max_capacity - Int
 
+work_points - Double
 
 ### Table name: _employee_
 
@@ -39,7 +53,7 @@ Columns:
 
 teacher_id - Primary key - Int
 
-teacher_name - varchar (64)
+name - varchar (64)
 
 email - varchar
 
@@ -52,7 +66,6 @@ contract_weight - float <0;1>
 study_perc - float <0;1>
 
 study_en_perc - float <0;1>
-
 
 ### Table name: _field_spec_
 
@@ -76,13 +89,15 @@ Columns:
 
 contract_id  - Primary key 
 
-capacity - Int
-
-max_capacity - Int
-
-subject_id - Int/varchar
+assigned - bool
 
 employee_id - Int
+
+work_points - Double
+
+type - varchar(1) // T - teaching, P - project, E - extra
+
+
 
 
 
